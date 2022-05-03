@@ -1,0 +1,15 @@
+# reading Geometry from Fil_e_part
+/mydet/readFile ../gdmls/Sphere_System_DEFMAT.gdml
+/run/initialize
+
+
+# geometry overlap test
+# macro commands for Geant4 >= 10.1
+
+/geometry/test/verbosity true
+/geometry/test/recursion_start 0
+/geometry/test/recursion_depth -1
+/geometry/test/tolerance 0 mm
+/geometry/test/resolution 10000
+/geometry/test/maximum_errors 1
+/geometry/test/run
