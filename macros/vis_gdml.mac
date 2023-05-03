@@ -1,0 +1,21 @@
+/process/em/verbose    0
+/process/had/verbose 0
+/process/eLoss/verbose 0
+
+# reading Geometry from Fil_e_part
+/mydet/readFile ../gdmls/Sphere_System_DEFMAT.gdml
+
+
+/run/initialize
+
+
+/vis/open OGL
+
+
+/vis/viewer/zoom 1.5
+/vis/drawVolume
+/vis/scene/add/trajectories
+/vis/modeling/trajectories/create/drawByCharge
+/vis/modeling/trajectories/drawByCharge-0/default/setDrawStepPts true
+/vis/modeling/trajectories/drawByCharge-0/default/setStepPtsSize 5
+

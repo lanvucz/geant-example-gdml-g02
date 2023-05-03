@@ -1,3 +1,7 @@
+/process/em/verbose    0
+/process/had/verbose 0
+/process/eLoss/verbose 0
+
 # reading Geometry from Fil_e_part
 /mydet/readFile ../gdmls/Sphere_System_DEFMAT.gdml
 /run/initialize

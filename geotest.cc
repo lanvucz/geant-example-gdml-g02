@@ -75,8 +75,7 @@ int main(int argc, char** argv)
 
   // Initialize visualization
   //
-  G4VisManager* visManager = new G4VisExecutive;
-  visManager->Initialize();
+  G4VisManager* visManager = 0;
 
   // Open a UI session: will stay there until the user types "exit"
   //
@@ -84,24 +83,24 @@ int main(int argc, char** argv)
 
   if ( argc==1 )   // Automatically run default macro for writing...
   {
-    G4UIExecutive* ui = new G4UIExecutive(argc, argv);
-    UImanager->ApplyCommand("/control/execute vis.mac");
+     visManager = new G4VisExecutive;
+     visManager->Initialize();
+     G4UIExecutive* ui = new G4UIExecutive(argc, argv);
     ui->SessionStart();
     delete ui;
   }
   else             // Interactive, provides macro in input
   {
-//    G4UIExecutive* ui = new G4UIExecutive(argc, argv);
     G4String command = "/control/execute ";
     G4String fileName = argv[1];
     UImanager->ApplyCommand(command+fileName);
-//    ui->SessionStart();
-//    delete ui;
   }
 
   // Job termination
   //
-  delete visManager;
+  if (visManager) {
+    delete visManager;
+  }
   delete runManager;
 
   return 0;
